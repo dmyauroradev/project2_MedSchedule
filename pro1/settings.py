@@ -27,9 +27,11 @@ load_dotenv(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG') == 'True'
+DEBUG = os.getenv('DEBUG', 'TRUE') == 'True'
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
+if ALLOWED_HOSTS == ["*"]: 
+    ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -103,7 +105,10 @@ WSGI_APPLICATION = 'pro1.wsgi.application'
 
 
 DATABASES = {
-    'default': dj_database_url.config(conn_max_age=600, default=os.getenv('DATABASE_URL'))
+    'default': dj_database_url.config(
+        conn_max_age=600, 
+        default=os.getenv('DATABASE_URL'),
+        engine='mysql.connector.django')
 }
 
 
@@ -184,11 +189,15 @@ DJOSER = {
 REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER': 'nucleus.serializers.MedicalStaffSerializer'
 }
+if not DEBUG:
+    SECURE_HSTS_SECONDS = 31536000
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+    SECURE_SSL_REDIRECT = True
 
-SECURE_HSTS_SECONDS = 31536000
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_HSTS_PRELOAD = True
-SECURE_SSL_REDIRECT = True
-
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True   
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True   
+else:
+    SECURE_SSL_REDIRECT = False
+    SESSION_COOKIE_SECURE = False
+    CSRF_COOKIE_SECURE = False
