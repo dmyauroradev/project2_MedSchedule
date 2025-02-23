@@ -17,7 +17,7 @@ import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-load_dotenv(os.path.join(BASE_DIR, '.env'))
+#load_dotenv(os.path.join(BASE_DIR, '.env'))
 
 
 # Quick-start development settings - unsuitable for production
@@ -103,10 +103,12 @@ WSGI_APPLICATION = 'pro1.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+print(f"ALL ENV VARS: {os.environ}")
 
 DATABASE_URL = os.getenv("DATABASE_URL")
 
 if DATABASE_URL:
+    print(f"DATABASE_URL from os.getenv: {DATABASE_URL}")
     DATABASES = {
         'default': dj_database_url.parse(DATABASE_URL)
     }
