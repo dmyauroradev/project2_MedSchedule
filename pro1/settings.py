@@ -106,9 +106,11 @@ WSGI_APPLICATION = 'pro1.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config( 
-        default=os.getenv('DATABASE_URL'),
-        engine='mysql.connector.django')
+        default=os.getenv('DATABASE_URL'),)
+        #engine='mysql.connector.django')
 }
+print(f"DATABASE_URL: {os.getenv('DATABASE_URL')}")
+
 
 
 # Password validation
