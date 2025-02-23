@@ -105,8 +105,7 @@ WSGI_APPLICATION = 'pro1.wsgi.application'
 
 
 DATABASES = {
-    'default': dj_database_url.config(
-        conn_max_age=600, 
+    'default': dj_database_url.config( 
         default=os.getenv('DATABASE_URL'),
         engine='mysql.connector.django')
 }
