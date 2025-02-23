@@ -18,7 +18,7 @@ import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 #load_dotenv(os.path.join(BASE_DIR, '.env'))
-
+load_dotenv()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -107,6 +107,7 @@ print(f"ALL ENV VARS: {os.environ}")
 
 DATABASE_URL = os.getenv("DATABASE_URL")
 
+
 if DATABASE_URL:
     print(f"DATABASE_URL from os.getenv: {DATABASE_URL}")
     DATABASES = {
@@ -114,7 +115,7 @@ if DATABASE_URL:
     }
 else:
     print("DATABASE_URL is not set!")
-
+print("DATABASE_URL:", os.getenv("DATABASE_URL"))
 
 
 
