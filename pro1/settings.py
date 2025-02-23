@@ -104,12 +104,15 @@ WSGI_APPLICATION = 'pro1.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 
-DATABASES = {
-    'default': dj_database_url.config( 
-        default=os.getenv('DATABASE_URL'),)
-        #engine='mysql.connector.django')
-}
-print(f"DATABASE_URL: {os.getenv('DATABASE_URL')}")
+DATABASE_URL = os.getenv("DATABASE_URL")
+
+if DATABASE_URL:
+    DATABASES = {
+        'default': dj_database_url.parse(DATABASE_URL)
+    }
+else:
+    print("DATABASE_URL is not set!")
+
 
 
 
