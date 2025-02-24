@@ -19,7 +19,7 @@ import dj_database_url
 BASE_DIR = Path(__file__).resolve().parent.parent
 #load_dotenv(os.path.join(BASE_DIR, '.env'))
 load_dotenv()
-
+PORT = os.getenv("PORT", 8080)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
@@ -105,8 +105,8 @@ WSGI_APPLICATION = 'pro1.wsgi.application'
 
 print(f"ALL ENV VARS: {os.environ}")
 
-DATABASE_URL = os.getenv("DATABASE_URL")
-
+DATABASE_URL = os.getenv("DATABASE_URL") or os.getenv("MYSQLDATABASEURL") 
+print(f"DATABASE_URL: {DATABASE_URL}")
 
 if DATABASE_URL:
     print(f"DATABASE_URL from os.getenv: {DATABASE_URL}")
@@ -115,7 +115,6 @@ if DATABASE_URL:
     }
 else:
     print("DATABASE_URL is not set!")
-print("DATABASE_URL:", os.getenv("DATABASE_URL"))
 
 
 
