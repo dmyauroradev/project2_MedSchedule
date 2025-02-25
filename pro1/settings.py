@@ -103,8 +103,7 @@ WSGI_APPLICATION = 'pro1.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-print(f"ALL ENV VARS: {os.environ}")
-
+#print(f"ALL ENV VARS: {os.environ}")
 DATABASE_URL = os.getenv("DATABASE_URL") or os.getenv("MYSQLDATABASEURL") 
 print(f"DATABASE_URL: {DATABASE_URL}")
 
