@@ -30,7 +30,7 @@ DATABASES = {
 # Tạo database MySQL:
 mysql -u root -p
 CREATE DATABASE dj_pro1;
-# Cấu hình file .env (Bước 3) và đặt DATABASE_URL với cú pháp:
+# Đặt DATABASE_URL với cú pháp:
 DATABASE_URL=mysql://root:your_password@localhost:3306/dj_pro1
 
 ### 3. Tạo & cấu hình .env:
