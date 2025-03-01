@@ -1,5 +1,5 @@
-# project2_MedSchedule
-- MedSchedule là một mini project. Giúp quản lý lịch trực của nhân viên y tế, đảm bảo phân công ca hợp lý theo từng khoa và quy định của bệnh viện. Hỗ trợ admin tự sắp lịch hoặc hệ thống tự động sắp lịch theo quy tắc.
+# Hệ thống quản lý lịch trực cho bác sĩ
+- MedSchedule là một mini project, giúp quản lý lịch trực của nhân viên y tế, đảm bảo phân công ca hợp lý theo từng khoa và quy định của bệnh viện. Hỗ trợ admin tự sắp lịch hoặc hệ thống tự động sắp lịch theo quy tắc.
 Tính năng chính:
 * Quản lý nhân viên y tế (hiện tại là bác sĩ, nếu có thể mở rộng sau này sẽ là y tá, hộ lý)
 * Sắp xếp ca trực theo khoa & công bằng theo tháng
