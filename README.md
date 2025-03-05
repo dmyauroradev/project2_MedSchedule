@@ -10,11 +10,11 @@ Tính năng chính:
 * Database: MySQL
 #  Hướng dẫn chạy dự án
 ## 1. Clone dự án và tạo môi trường ảo
-git clone https://github.com/dmyauroradev/project2_MedSchedule.git
-cd pro1
-python -m venv venv
-source venv/bin/activate  # Trên Windows: venv\Scripts\activate
-pip install -r requirements.txt
+* git clone https://github.com/dmyauroradev/project2_MedSchedule.git
+* cd pro1
+* python -m venv venv
+* source venv/bin/activate  # Trên Windows: venv\Scripts\activate
+* pip install -r requirements.txt
 
 ## 2. Cấu hình Database:
 ### Cách 1: Dùng SQLite (Nhanh, không cần MySQL):
